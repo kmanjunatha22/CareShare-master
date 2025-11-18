@@ -6,46 +6,71 @@
     <title>Care & Share — Donate, Exchange, Resell</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-          --primary-color: #00A0E3; /* Mercedes blue */
-          --secondary-color: #000000; /* Black for contrast */
-          --accent-color: #E6F7FF; /* Light blue accent */
-          --bg-light: #f8fafc;
-          --text-dark: #1E293B;
-          --card-shadow: rgba(0,0,0,0.05);
+          --infosys-purple: #3C009D;
+          --infosys-blue: #1388D7;
+          --infosys-light-blue: #E6F4FF;
+          --infosys-dark: #1A1A1A;
+          --infosys-gray: #666666;
+          --infosys-light-gray: #F5F5F5;
+          --infosys-white: #FFFFFF;
+          --header-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+          --gradient: linear-gradient(135deg, var(--infosys-purple) 0%, var(--infosys-blue) 100%);
         }
+
         body {
-          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-          background: #fff;
-          color: var(--text-dark);
+          font-family: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+          background: var(--infosys-white);
+          color: var(--infosys-dark);
           padding-top: 80px;
           overflow-x: hidden;
+          line-height: 1.6;
         }
+
         .navbar-custom {
-          background: rgba(255, 255, 255, 0.95);
-          box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+          background: var(--header-gradient);
+          box-shadow: 0 2px 15px rgba(0,0,0,0.2);
           position: fixed;
           width: 100%;
           z-index: 1050;
-          backdrop-filter: blur(10px);
+          padding: 12px 0;
           transition: all 0.3s ease;
         }
+
         .navbar-brand {
           font-weight: 700;
-          color: var(--primary-color);
+          color: white;
+          font-size: 1.8rem;
+          display: flex;
+          align-items: center;
+        }
+
+        .navbar-brand i {
+          margin-right: 10px;
           font-size: 1.6rem;
         }
+
         .nav-link {
-          color: var(--text-dark) !important;
+          color: rgba(255, 255, 255, 0.9) !important;
           font-weight: 500;
-          margin-left: 1rem;
+          margin-left: 1.5rem;
           position: relative;
           transition: color 0.3s ease;
+          padding: 8px 12px !important;
+          font-size: 0.95rem;
         }
+
         .nav-link:hover {
-          color: var(--primary-color) !important;
+          color: white !important;
         }
+
+        .nav-link.active {
+          color: white !important;
+          font-weight: 600;
+        }
+
         .nav-link::after {
           content: '';
           position: absolute;
@@ -53,32 +78,46 @@
           height: 2px;
           bottom: 0;
           left: 0;
-          background-color: var(--primary-color);
+          background-color: white;
           transition: width 0.3s ease;
         }
+
         .nav-link:hover::after {
           width: 100%;
         }
 
-        /* Hero */
+        .navbar-toggler {
+          border: none;
+          padding: 4px 8px;
+          color: white;
+        }
+
+        .navbar-toggler:focus {
+          box-shadow: none;
+        }
+
+        /* Hero Section */
         #heroCarousel {
-          height: 80vh;
+          height: 75vh;
           min-height: 600px;
           position: relative;
         }
+
         #heroCarousel .carousel-item {
-          height: 80vh;
+          height: 75vh;
           min-height: 600px;
         }
+
         #heroCarousel .carousel-item img {
           object-fit: cover;
           height: 100%;
           width: 100%;
           filter: brightness(0.7);
         }
+
         #heroCarousel .carousel-caption {
-          bottom: 25%;
-          background: rgba(0, 0, 0, 0.6);
+          bottom: 20%;
+          background: rgba(0, 0, 0, 0.7);
           border-radius: 0;
           padding: 3rem;
           max-width: 800px;
@@ -86,44 +125,61 @@
           left: 10%;
           right: auto;
         }
+
         #heroCarousel .carousel-caption h1 {
           font-weight: 700;
-          font-size: 3.5rem;
+          font-size: 3rem;
           color: white;
           margin-bottom: 1.5rem;
-          text-transform: uppercase;
-          letter-spacing: 1px;
         }
+
         #heroCarousel .carousel-caption p {
-          font-size: 1.3rem;
+          font-size: 1.2rem;
           color: #f0f0f0;
           margin-bottom: 2rem;
           line-height: 1.6;
         }
+
         #heroCarousel .btn-primary {
-          background: transparent;
-          border: 2px solid white;
+          background: var(--infosys-blue);
+          border: 2px solid var(--infosys-blue);
           padding: 0.8rem 2.5rem;
           border-radius: 0;
           font-weight: 600;
-          letter-spacing: 1px;
+          letter-spacing: 0.5px;
           transition: all 0.3s ease;
         }
+
         #heroCarousel .btn-primary:hover {
-          background: white;
-          color: var(--primary-color);
+          background: transparent;
+          color: white;
+          border-color: white;
         }
 
+        .carousel-indicators [data-bs-target] {
+          width: 12px;
+          height: 12px;
+          border-radius: 50%;
+          margin: 0 6px;
+          background-color: rgba(255,255,255,0.5);
+          border: none;
+        }
+
+        .carousel-indicators .active {
+          background-color: white;
+        }
+
+        /* Section Titles */
         h2.section-title {
-          font-weight: 700;
-          color: var(--secondary-color);
+          font-weight: 600;
+          color: var(--infosys-dark);
           margin-bottom: 3rem;
           text-align: center;
-          text-transform: uppercase;
-          letter-spacing: 2px;
           position: relative;
           padding-bottom: 1rem;
+          font-size: 2.2rem;
         }
+
         h2.section-title::after {
           content: '';
           position: absolute;
@@ -131,17 +187,19 @@
           left: 50%;
           transform: translateX(-50%);
           width: 80px;
-          height: 3px;
-          background-color: var(--primary-color);
+          height: 4px;
+          background: var(--gradient);
         }
 
+        /* Card Sections */
         .card-section {
-          padding: 100px 15px;
+          padding: 80px 15px;
           max-width: 1200px;
           margin: 0 auto;
         }
+
         .action-card, .feature-card {
-          background: #fff;
+          background: var(--infosys-white);
           border-radius: 0;
           padding: 40px 30px;
           box-shadow: 0 5px 15px rgba(0,0,0,0.05);
@@ -151,105 +209,70 @@
           display: flex;
           flex-direction: column;
           justify-content: flex-start;
-          border-top: 3px solid var(--primary-color);
+          border-left: 4px solid var(--infosys-blue);
           position: relative;
           overflow: hidden;
         }
-        .action-card::before, .feature-card::before {
-          content: '';
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 0;
-          background: var(--accent-color);
-          transition: height 0.3s ease;
-          z-index: 0;
-        }
-        .action-card:hover::before, .feature-card:hover::before {
-          height: 100%;
-        }
+
         .action-card:hover, .feature-card:hover {
-          transform: translateY(-10px);
-          box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+          transform: translateY(-5px);
+          box-shadow: 0 10px 25px rgba(0,0,0,0.1);
         }
+
         .action-card .icon, .feature-card .feature-icon {
-          font-size: 3.5rem;
-          color: var(--primary-color);
+          font-size: 3rem;
+          color: var(--infosys-blue);
           margin-bottom: 1.5rem;
-          position: relative;
-          z-index: 1;
         }
+
         .action-card .action-title, .feature-card .feature-title {
-          font-size: 1.5rem;
-          font-weight: 700;
+          font-size: 1.4rem;
+          font-weight: 600;
           margin-bottom: 1rem;
-          position: relative;
-          z-index: 1;
+          color: var(--infosys-dark);
         }
+
         .action-card .action-desc, .feature-card .feature-desc {
-          color: #555;
+          color: var(--infosys-gray);
           flex-grow: 1;
-          position: relative;
-          z-index: 1;
           line-height: 1.6;
         }
+
         .action-card .action-btn {
           margin-top: 2rem;
-          position: relative;
-          z-index: 1;
         }
 
+        /* About Section */
         #about {
-          padding: 100px 15px;
-          background: #f8f9fa;
-          border-radius: 0;
+          padding: 80px 15px;
+          background: var(--infosys-light-gray);
           max-width: 1000px;
           margin: 0 auto;
-          position: relative;
-        }
-        #about::before {
-          content: '';
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 5px;
-          background: var(--primary-color);
         }
 
+        /* How It Works Section */
         #how-it-works {
-          padding: 100px 15px;
-          background: #fff;
-          border-radius: 0;
+          padding: 80px 15px;
+          background: var(--infosys-white);
           max-width: 1200px;
           margin: 0 auto;
-          position: relative;
         }
-        #how-it-works::before {
-          content: '';
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 5px;
-          background: var(--primary-color);
-        }
+
         .step {
           text-align: center;
           padding: 2rem 1.5rem;
           position: relative;
         }
+
         .step::before {
           content: '';
           position: absolute;
           top: 0;
           left: 50%;
           transform: translateX(-50%);
-          width: 60px;
-          height: 60px;
-          background: var(--primary-color);
-          border-radius: 50%;
+          width: 50px;
+          height: 50px;
+          background: var(--gradient);
           display: flex;
           align-items: center;
           justify-content: center;
@@ -258,75 +281,207 @@
           font-size: 1.2rem;
           z-index: 1;
         }
+
         .step:nth-child(1)::before { content: '1'; }
         .step:nth-child(2)::before { content: '2'; }
         .step:nth-child(3)::before { content: '3'; }
         .step:nth-child(4)::before { content: '4'; }
         .step:nth-child(5)::before { content: '5'; }
         .step:nth-child(6)::before { content: '6'; }
-        .step:nth-child(7)::before { content: '7'; }
-        .step:nth-child(8)::before { content: '8'; }
+
         .step-icon {
-          font-size: 3.5rem;
-          color: var(--primary-color);
+          font-size: 3rem;
+          color: var(--infosys-blue);
           margin-bottom: 1rem;
           margin-top: 1.5rem;
         }
+
         .step-title {
-          font-weight: 700;
-          font-size: 1.4rem;
+          font-weight: 600;
+          font-size: 1.3rem;
           margin-bottom: 1rem;
-          text-transform: uppercase;
-          letter-spacing: 1px;
+          color: var(--infosys-dark);
         }
+
         .step-desc {
-          color: #555;
+          color: var(--infosys-gray);
           font-size: 1rem;
           max-width: 320px;
           margin: 0 auto;
           line-height: 1.6;
         }
-        .step-details {
-          font-size: 0.9rem;
-          color: #777;
-          margin-top: 0.8rem;
-          max-width: 340px;
-          margin: 0.8rem auto 0;
-          line-height: 1.5;
+
+        /* Stats Section */
+        .stats-section {
+          padding: 80px 15px;
+          background: var(--gradient);
+          color: white;
         }
 
-        footer {
-          background: var(--secondary-color);
-          color: white;
-          padding: 40px 0 20px;
+        .stat-number {
+          font-size: 2.8rem;
+          font-weight: 700;
+          margin-bottom: 0.5rem;
         }
-        footer a {
+
+        .stat-label {
+          font-size: 1.1rem;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+        }
+
+        /* Testimonials */
+        .testimonial-card {
+          background: white;
+          padding: 30px;
+          box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+          margin: 20px 0;
+          border-left: 4px solid var(--infosys-blue);
+        }
+
+        .testimonial-text {
+          font-style: italic;
+          margin-bottom: 20px;
+          color: var(--infosys-gray);
+        }
+
+        .testimonial-author {
+          display: flex;
+          align-items: center;
+        }
+
+        .testimonial-author img {
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+          margin-right: 15px;
+          object-fit: cover;
+        }
+
+        .testimonial-author-info h5 {
+          margin: 0;
+          font-weight: 600;
+        }
+
+        .testimonial-author-info p {
+          margin: 0;
+          color: var(--infosys-gray);
+          font-size: 0.9rem;
+        }
+
+        /* Newsletter */
+        .newsletter-section {
+          background: var(--infosys-light-gray);
+          padding: 60px 0;
+          text-align: center;
+        }
+
+        .newsletter-section h2 {
+          margin-bottom: 20px;
+          font-weight: 600;
+          color: var(--infosys-dark);
+        }
+
+        .newsletter-section p {
+          margin-bottom: 30px;
+          max-width: 600px;
+          margin-left: auto;
+          margin-right: auto;
+          color: var(--infosys-gray);
+        }
+
+        .newsletter-form {
+          max-width: 500px;
+          margin: 0 auto;
+        }
+
+        .newsletter-form .form-control {
+          padding: 12px 20px;
+          border-radius: 0;
+          border: 1px solid #ddd;
+        }
+
+        .newsletter-form .btn {
+          border-radius: 0;
+          padding: 12px 25px;
+          background: var(--infosys-blue);
+          border: 1px solid var(--infosys-blue);
+          font-weight: 600;
+        }
+
+        .newsletter-form .btn:hover {
+          background: var(--infosys-purple);
+          border-color: var(--infosys-purple);
+        }
+
+        /* Buttons */
+        .btn-outline-primary {
+          border: 2px solid var(--infosys-blue);
+          color: var(--infosys-blue);
+          border-radius: 0;
+          padding: 0.7rem 2rem;
+          font-weight: 600;
+          transition: all 0.3s ease;
+        }
+
+        .btn-outline-primary:hover {
+          background: var(--infosys-blue);
           color: white;
-          margin: 0 10px;
-          font-size: 1.2rem;
+        }
+
+        /* Footer */
+        .corporate-footer {
+          background-color: var(--infosys-dark);
+          color: white;
+          padding: 60px 0 30px;
+        }
+
+        .corporate-footer h5 {
+          margin-bottom: 20px;
+          font-weight: 600;
+          font-size: 1.1rem;
+        }
+
+        .corporate-footer ul {
+          list-style: none;
+          padding: 0;
+        }
+
+        .corporate-footer ul li {
+          margin-bottom: 10px;
+        }
+
+        .corporate-footer ul li a {
+          color: #ccc;
+          text-decoration: none;
           transition: color 0.3s ease;
+          font-size: 0.9rem;
         }
-        footer a:hover {
-          color: var(--primary-color);
+
+        .corporate-footer ul li a:hover {
+          color: white;
           text-decoration: none;
         }
-        footer .social-icons {
-          margin-top: 15px;
+
+        .footer-bottom {
+          background: #111;
+          color: #999;
+          padding: 20px 0;
+          font-size: 0.9rem;
         }
 
-        /* Chatbot & responsive */
+        /* Chatbot */
         #chatbot-btn {
           position: fixed;
           bottom: 30px;
           right: 30px;
-          background: var(--primary-color);
+          background: var(--infosys-blue);
           color: white;
-          border-radius: 50%;
           width: 60px;
           height: 60px;
           border: none;
           cursor: pointer;
-          box-shadow: 0 5px 15px rgba(0, 160, 227, 0.4);
+          box-shadow: 0 5px 15px rgba(0,0,0,0.2);
           display: flex;
           align-items: center;
           justify-content: center;
@@ -334,10 +489,12 @@
           z-index: 1100;
           transition: all 0.3s ease;
         }
+
         #chatbot-btn:hover {
-          background: var(--secondary-color);
+          background: var(--infosys-purple);
           transform: scale(1.05);
         }
+
         #chatbox {
           position: fixed;
           bottom: 100px;
@@ -345,35 +502,33 @@
           width: 350px;
           max-width: 90vw;
           background: white;
-          border-radius: 0;
-          box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+          box-shadow: 0 5px 25px rgba(0,0,0,0.2);
           display: none;
           flex-direction: column;
           overflow: hidden;
           z-index: 1101;
-          border-top: 3px solid var(--primary-color);
+          border-top: 4px solid var(--infosys-blue);
         }
+
         #chatbox header {
-          background: var(--primary-color);
+          background: var(--infosys-blue);
           color: white;
           padding: 15px 20px;
-          font-weight: 700;
+          font-weight: 600;
           font-size: 1.1rem;
           display: flex;
           justify-content: space-between;
           align-items: center;
         }
+
         #chatbox header button {
           background: transparent;
           border: none;
           color: white;
           font-size: 1.4rem;
           cursor: pointer;
-          transition: color 0.3s ease;
         }
-        #chatbox header button:hover {
-          color: var(--secondary-color);
-        }
+
         #chatbox .messages {
           padding: 15px 20px;
           height: 300px;
@@ -382,10 +537,12 @@
           color: #333;
           background: #f9fafb;
         }
+
         #chatbox .input-area {
           display: flex;
           border-top: 1px solid #ddd;
         }
+
         #chatbox .input-area input {
           flex-grow: 1;
           padding: 12px 15px;
@@ -393,143 +550,85 @@
           font-size: 1rem;
           outline: none;
         }
+
         #chatbox .input-area button {
-          background: var(--primary-color);
+          background: var(--infosys-blue);
           border: none;
           color: white;
           padding: 0 20px;
           cursor: pointer;
           transition: background 0.3s;
         }
+
         #chatbox .input-area button:hover {
-          background: var(--secondary-color);
+          background: var(--infosys-purple);
         }
+
         .message {
           margin-bottom: 12px;
           max-width: 80%;
           padding: 10px 15px;
-          border-radius: 0;
           clear: both;
           font-size: 0.9rem;
           line-height: 1.3;
         }
+
         .message.user {
-          background: var(--primary-color);
+          background: var(--infosys-blue);
           color: white;
           float: right;
-          border-bottom-left-radius: 15px;
-          border-top-left-radius: 15px;
-          border-top-right-radius: 5px;
         }
+
         .message.bot {
           background: #e2e8f0;
-          color: var(--text-dark);
+          color: var(--infosys-dark);
           float: left;
-          border-bottom-right-radius: 15px;
-          border-top-right-radius: 15px;
-          border-top-left-radius: 5px;
         }
 
-        /* Mercedes-style sections */
-        .mercedes-section {
-          padding: 100px 0;
-          position: relative;
-        }
-        .mercedes-section.dark {
-          background: var(--secondary-color);
-          color: white;
-        }
-        .mercedes-section.light {
-          background: #f8f9fa;
-        }
-        .mercedes-section.white {
-          background: white;
-        }
-
-        .stat-number {
-          font-size: 3rem;
-          font-weight: 700;
-          color: var(--primary-color);
-          margin-bottom: 0.5rem;
-        }
-        .stat-label {
-          font-size: 1.1rem;
-          text-transform: uppercase;
-          letter-spacing: 1px;
-        }
-
-        .btn-outline-primary {
-          border: 2px solid var(--primary-color);
-          color: var(--primary-color);
-          border-radius: 0;
-          padding: 0.7rem 2rem;
-          font-weight: 600;
-          transition: all 0.3s ease;
-        }
-        .btn-outline-primary:hover {
-          background: var(--primary-color);
-          color: white;
-        }
-
+        /* Responsive */
         @media (max-width: 768px) {
           #heroCarousel {
-            height: 70vh;
+            height: 60vh;
             min-height: 500px;
           }
+
           #heroCarousel .carousel-item {
-            height: 70vh;
+            height: 60vh;
             min-height: 500px;
           }
+
           #heroCarousel .carousel-caption {
             max-width: 90vw;
             bottom: 15%;
             left: 5%;
             padding: 2rem;
           }
+
           #heroCarousel .carousel-caption h1 {
-            font-size: 2.2rem;
+            font-size: 2rem;
           }
+
           #heroCarousel .carousel-caption p {
-            font-size: 1.1rem;
+            font-size: 1rem;
           }
+
           #chatbox {
             width: 90vw;
             right: 5vw;
             bottom: 80px;
           }
+
           .card-section, #about, #how-it-works {
             padding: 60px 15px;
           }
-        }
 
-        /* Amazon-style footer section */
-        .amazon-footer {
-          background-color: #1a1a1a;
-          color: white;
-          padding: 60px 0 40px;
-        }
-        .amazon-footer h5 {
-          margin-bottom: 20px;
-          font-weight: 600;
-          text-transform: uppercase;
-          letter-spacing: 1px;
-          font-size: 1.1rem;
-        }
-        .amazon-footer ul {
-          list-style: none;
-          padding: 0;
-        }
-        .amazon-footer ul li {
-          margin-bottom: 10px;
-        }
-        .amazon-footer ul li a {
-          color: #ccc;
-          text-decoration: none;
-          transition: color 0.3s ease;
-        }
-        .amazon-footer ul li a:hover {
-          color: white;
-          text-decoration: none;
+          .navbar-brand {
+            font-size: 1.5rem;
+          }
+
+          h2.section-title {
+            font-size: 1.8rem;
+          }
         }
     </style>
 </head>
@@ -539,6 +638,7 @@
 <nav class="navbar navbar-expand-lg navbar-light navbar-custom fixed-top shadow-sm">
     <div class="container">
         <a class="navbar-brand" href="/">
+            <i class="fa-solid fa-hand-holding-heart"></i>
             <span style="font-weight: 300;">CARE</span> <strong>&</strong> <span style="font-weight: 300;">SHARE</span>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
@@ -547,13 +647,13 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav ms-auto">
-                <a class="nav-link" href="#heroCarousel"><i class="fa-solid fa-house"></i> Home</a>
-                <a class="nav-link" href="#actions"><i class="fa-solid fa-hands-helping"></i> Actions</a>
-                <a class="nav-link" href="#features"><i class="fa-solid fa-list"></i> Features</a>
+                <a class="nav-link active" href="#heroCarousel">Home</a>
+                <a class="nav-link" href="#actions">Actions</a>
+                <a class="nav-link" href="#features">Features</a>
                 <a class="nav-link" href="#about">About</a>
-                <a class="nav-link" href="#how-it-works"><i class="fa-solid fa-gears"></i> How It Works</a>
-                <a class="nav-link" href="/login"><i class="fa-solid fa-right-to-bracket"></i> Login</a>
-                <a class="nav-link" href="/register"><i class="fa-solid fa-pencil"></i> Register</a>
+                <a class="nav-link" href="#how-it-works">How It Works</a>
+                <a class="nav-link" href="/login">Login</a>
+                <a class="nav-link" href="/register">Register</a>
             </div>
         </div>
     </div>
@@ -561,13 +661,18 @@
 
 <!-- Hero Carousel -->
 <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="6000" aria-label="Hero slideshow">
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
     <div class="carousel-inner">
         <div class="carousel-item active">
             <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1470&q=80"
                  class="d-block w-100" alt="Donate" />
             <div class="carousel-caption text-start">
                 <h1>Care & Share</h1>
-                <p>A premium platform for donating, exchanging, and reselling with elegance and purpose.</p>
+                <p>A professional platform for donating, exchanging, and reselling with purpose and efficiency.</p>
                 <a href="/register" class="btn btn-primary">Get Started</a>
             </div>
         </div>
@@ -576,7 +681,7 @@
                  class="d-block w-100" alt="Community" />
             <div class="carousel-caption">
                 <h1>Connect With Community</h1>
-                <p>Exchange and share resources with people near you in a sophisticated environment.</p>
+                <p>Exchange and share resources with people near you in a trusted environment.</p>
                 <a href="#features" class="btn btn-primary">Learn More</a>
             </div>
         </div>
@@ -585,7 +690,7 @@
                  class="d-block w-100" alt="Sustainability" />
             <div class="carousel-caption text-end">
                 <h1>Promote Sustainability</h1>
-                <p>Reduce waste by reselling or donating items with our premium platform experience.</p>
+                <p>Reduce waste by reselling or donating items through our efficient platform.</p>
                 <a href="#how-it-works" class="btn btn-primary">See How</a>
             </div>
         </div>
@@ -601,7 +706,7 @@
 </div>
 
 <!-- Stats Section -->
-<section class="mercedes-section white">
+<section class="stats-section">
     <div class="container">
         <div class="row text-center">
             <div class="col-md-3 col-6 mb-4">
@@ -664,7 +769,7 @@
 </section>
 
 <!-- Features Section -->
-<section id="features" class="mercedes-section light">
+<section id="features" class="card-section" style="background: var(--infosys-light-gray);">
     <div class="container">
         <h2 class="section-title">Features</h2>
         <div class="row g-4">
@@ -714,8 +819,59 @@
     </div>
 </section>
 
+<!-- Testimonials Section -->
+<section class="card-section">
+    <div class="container">
+        <h2 class="section-title">What Our Users Say</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "Care & Share helped me declutter my home while helping others. I've donated over 20 items and feel great about it!"
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah Johnson">
+                        <div class="testimonial-author-info">
+                            <h5>Sarah Johnson</h5>
+                            <p>Donor, 2 years with us</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "As a student on a budget, I've furnished my entire apartment through exchanges on this platform. It's amazing!"
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Michael Chen">
+                        <div class="testimonial-author-info">
+                            <h5>Michael Chen</h5>
+                            <p>Student, Active Exchanger</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "I've earned over $2,000 reselling items I no longer need. The platform is intuitive and the community is trustworthy."
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Emma Rodriguez">
+                        <div class="testimonial-author-info">
+                            <h5>Emma Rodriguez</h5>
+                            <p>Reseller, 1 year with us</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- About Section -->
-<section id="about" class="mercedes-section white">
+<section id="about">
     <div class="container">
         <h2 class="section-title">About Care & Share</h2>
         <p class="lead text-center mb-5">
@@ -750,7 +906,7 @@
 </section>
 
 <!-- How It Works Section -->
-<section id="how-it-works" class="mercedes-section light">
+<section id="how-it-works">
     <div class="container">
         <h2 class="section-title">How It Works</h2>
         <div class="row justify-content-center gy-5">
@@ -758,44 +914,52 @@
                 <div class="step-icon"><i class="fa-solid fa-user-plus"></i></div>
                 <div class="step-title">Register & Create Profile</div>
                 <div class="step-desc">Sign up with your email and set your location to see nearby listings.</div>
-                <div class="step-details">Add your photo, name, interests and preferences for smoother connections.</div>
             </div>
             <div class="col-md-4 col-sm-6 step">
                 <div class="step-icon"><i class="fa-solid fa-list-check"></i></div>
                 <div class="step-title">List Your Items</div>
                 <div class="step-desc">Upload photos, description, condition, and price or exchange preference.</div>
-                <div class="step-details">Categorize your item for better visibility to the right audience.</div>
             </div>
             <div class="col-md-4 col-sm-6 step">
                 <div class="step-icon"><i class="fa-solid fa-search"></i></div>
                 <div class="step-title">Browse Listings</div>
                 <div class="step-desc">Search for items by category, location, or condition.</div>
-                <div class="step-details">Use filters to narrow down to what you really want.</div>
             </div>
             <div class="col-md-4 col-sm-6 step">
                 <div class="step-icon"><i class="fa-solid fa-comments"></i></div>
                 <div class="step-title">Chat Securely</div>
                 <div class="step-desc">Reach out to users to discuss deals, trades, or pickups.</div>
-                <div class="step-details">Your contact info is hidden until you choose to share it.</div>
             </div>
             <div class="col-md-4 col-sm-6 step">
                 <div class="step-icon"><i class="fa-solid fa-truck"></i></div>
                 <div class="step-title">Pick up or Deliver</div>
                 <div class="step-desc">Arrange safe handover in person or via courier.</div>
-                <div class="step-details">Share address details or shipping information as needed.</div>
             </div>
             <div class="col-md-4 col-sm-6 step">
                 <div class="step-icon"><i class="fa-solid fa-heart"></i></div>
                 <div class="step-title">Grow the Community</div>
                 <div class="step-desc">Earn badges and rewards for active participation.</div>
-                <div class="step-details">Introduce new users and spread kindness.</div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Amazon-style footer -->
-<section class="amazon-footer">
+<!-- Newsletter Section -->
+<section class="newsletter-section">
+    <div class="container">
+        <h2>Join Our Community</h2>
+        <p>Subscribe to our newsletter to receive updates on new features, success stories, and sustainability tips.</p>
+        <div class="newsletter-form">
+            <div class="input-group">
+                <input type="email" class="form-control" placeholder="Your email address" aria-label="Your email address">
+                <button class="btn" type="button">Subscribe</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Corporate Footer -->
+<section class="corporate-footer">
     <div class="container">
         <div class="row text-start">
             <div class="col-md-3 mb-4">
@@ -822,7 +986,6 @@
                     <li><a href="#">Become a Volunteer</a></li>
                     <li><a href="#">Partner with Us</a></li>
                     <li><a href="#">Community Guidelines</a></li>
-                    <li><a href="#">Success Stories</a></li>
                 </ul>
             </div>
             <div class="col-md-3 mb-4">
@@ -832,25 +995,18 @@
                     <li><a href="#">Help Center</a></li>
                     <li><a href="#">Safety Tips</a></li>
                     <li><a href="#">Contact Support</a></li>
-                    <li><a href="#">FAQ</a></li>
                 </ul>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Original Footer -->
-<footer class="text-center">
+<!-- Footer Bottom -->
+<div class="footer-bottom text-center">
     <div class="container">
-        <p>© 2025 Care & Share. All rights reserved.</p>
-        <div class="social-icons">
-            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-        </div>
+        <p>© 2025 Care & Share. All rights reserved. | Privacy Policy | Terms of Service</p>
     </div>
-</footer>
+</div>
 
 <!-- Chatbot UI -->
 <button id="chatbot-btn" aria-label="Open chatbot"><i class="fa-solid fa-robot"></i></button>
@@ -946,10 +1102,10 @@
     window.addEventListener('scroll', function() {
       const navbar = document.querySelector('.navbar-custom');
       if (window.scrollY > 50) {
-        navbar.style.background = 'rgba(255, 255, 255, 0.98)';
-        navbar.style.boxShadow = '0 2px 15px rgba(0,0,0,0.1)';
+        navbar.style.background = 'var(--header-gradient)';
+        navbar.style.boxShadow = '0 2px 15px rgba(0,0,0,0.2)';
       } else {
-        navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+        navbar.style.background = 'var(--header-gradient)';
         navbar.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
       }
     });
